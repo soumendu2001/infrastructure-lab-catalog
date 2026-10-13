@@ -1,0 +1,37 @@
+This is for instructors or automated evaluation. 
+# Solution Guide 
+## Root Cause 
+A large file was intentionally created in: C:\DiskFill 
+File: diskfill.dat 
+## Investigation Steps
+ ### Check Disk Usage 
+powershell Get-CimInstance Win32_LogicalDisk | Select DeviceID, @{N="UsedPct";E={ :Round( (($_.Size-$_.FreeSpace)/$_.Size)*100,2) }}
+
+Expected:
+C: ≈ 95%
+
+Identify Large Files
+Get-ChildItem C:\DiskFill
+
+Expected:
+diskfill.dat
+Remediation Option 1
+Remove-Item C:\DiskFill\diskfill.dat
+
+Remediation Option 2
+Execute AWX Job Template:
+JT-Disk-Cleanup
+
+Validate
+Get-CimInstance Win32_LogicalDisk
+Expected:
+Utilization < 85%
+
+Expected Outcome
+Before:
+95%
+After:
+<85%
+
+
+
