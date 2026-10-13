@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "id": "windows.service.iis.basic",
+  "name": "Windows IIS Service Failure Lab",
+
+  "os": "windows",
+
+  "difficulty": "basic",
+
+  "issue": {
+    "type": "service_down",
+    "service": "W3SVC"
+  },
+
+  "provisioning": {
+    "host": "windows1"
+  },
+
+  "workflow": {
+    "name": "WF-IIS-Self-Healing"
+  },
+
+  "studentGuide": "student-guide.docx",
+
+  "solutionGuide": "solution-guide.docx",
+
+  "jobTemplates": [
+    "JT-IIS-Health-Check",
+    "JT-IIS-Restart",
+    "JT-IIS-Validation",
+    "JT-IIS-Analysis"
+  ],
+
+  "tags": [
+    "windows",
+    "iis",
+    "service",
+    "self-healing",
+    "awx"
+  ]
+}
