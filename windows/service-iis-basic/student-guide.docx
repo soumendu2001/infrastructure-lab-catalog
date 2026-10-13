@@ -1,0 +1,11 @@
+Users report that the corporate website is unavailable.
+
+Server:
+windows1
+
+Objective:
+Restore website availability.
+
+Success Criteria:
+- IIS Service running
+- Website accessible
