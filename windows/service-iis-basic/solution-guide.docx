@@ -1,0 +1,25 @@
+Root Cause:
+W3SVC service has been stopped.
+
+Investigation:
+
+Get-Service W3SVC
+
+Expected:
+Stopped
+
+Manual Resolution:
+
+Start-Service W3SVC
+
+AWX Resolution:
+
+Execute:
+JT-IIS-Restart-Service
+
+Validation:
+
+Get-Service W3SVC
+
+Expected:
+Running
