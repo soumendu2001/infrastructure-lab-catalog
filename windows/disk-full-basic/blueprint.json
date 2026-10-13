@@ -13,7 +13,9 @@
     "targetUtilization": 95
   },
 
-  "workflow": "WF-Disk-Self-Healing",
+  "workflow": {
+    "name": "WF-Disk-Self-Healing"
+  },
 
   "provisioning": {
     "host": "windows1"
@@ -36,7 +38,7 @@
   "storage",
   "self-healing",
   "awx"
-]
+],
 
   "successCriteria": [
     "Disk utilization below 85%",
