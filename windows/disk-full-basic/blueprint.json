@@ -30,6 +30,13 @@
     "JT-Disk-Validation",
     "JT-Disk-Analysis"
   ],
+  "tags": [
+  "windows",
+  "disk",
+  "storage",
+  "self-healing",
+  "awx"
+]
 
   "successCriteria": [
     "Disk utilization below 85%",
