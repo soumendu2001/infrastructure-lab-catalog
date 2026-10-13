@@ -1,9 +1,11 @@
 {
   "schemaVersion": "1.0",
+
   "id": "windows.disk.full.basic",
 
   "name": "Windows Disk Full Lab",
-  "os": "windows",  
+
+  "os": "windows",
 
   "difficulty": "basic",
 
@@ -13,12 +15,12 @@
     "targetUtilization": 95
   },
 
-  "workflow": {
-    "name": "WF-Disk-Self-Healing"
-  },
-
   "provisioning": {
     "host": "windows1"
+  },
+
+  "workflow": {
+    "name": "WF-Disk-Self-Healing"
   },
 
   "studentGuide": "student-guide.docx",
@@ -32,13 +34,14 @@
     "JT-Disk-Validation",
     "JT-Disk-Analysis"
   ],
+
   "tags": [
-  "windows",
-  "disk",
-  "storage",
-  "self-healing",
-  "awx"
-],
+    "windows",
+    "disk",
+    "storage",
+    "self-healing",
+    "awx"
+  ],
 
   "successCriteria": [
     "Disk utilization below 85%",
