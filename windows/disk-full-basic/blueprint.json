@@ -1,0 +1,38 @@
+{
+  "id": "windows.disk.full.basic",
+
+  "name": "Windows Disk Full Lab",
+  "os": "windows",  
+
+  "difficulty": "basic",
+
+  "issue": {
+    "type": "disk_full",
+    "drive": "C",
+    "targetUtilization": 95
+  },
+
+  "workflow": "WF-Disk-Self-Healing",
+
+  "provisioning": {
+    "host": "windows1"
+  },
+
+  "studentGuide": "student-guide.docx",
+
+  "solutionGuide": "solution-guide.docx",
+
+  "jobTemplates": [
+    "JT-Fill-Disk",
+    "JT-Disk-Health-Check",
+    "JT-Disk-Cleanup",
+    "JT-Disk-Validation",
+    "JT-Disk-Analysis"
+  ],
+
+  "successCriteria": [
+    "Disk utilization below 85%",
+    "Cleanup executed successfully",
+    "Validation successful"
+  ]
+}
