@@ -1,6 +1,8 @@
 {
   "schemaVersion": "1.0",
+
   "id": "windows.service.iis.basic",
+
   "name": "Windows IIS Service Failure Lab",
 
   "os": "windows",
@@ -9,7 +11,8 @@
 
   "issue": {
     "type": "service_down",
-    "service": "W3SVC"
+    "service": "W3SVC",
+    "displayName": "World Wide Web Publishing Service"
   },
 
   "provisioning": {
@@ -25,8 +28,9 @@
   "solutionGuide": "solution-guide.docx",
 
   "jobTemplates": [
+    "JT-IIS-Fault-Injection",
     "JT-IIS-Health-Check",
-    "JT-IIS-Restart",
+    "JT-IIS-Restart-Service",
     "JT-IIS-Validation",
     "JT-IIS-Analysis"
   ],
@@ -34,8 +38,15 @@
   "tags": [
     "windows",
     "iis",
+    "webserver",
     "service",
     "self-healing",
     "awx"
+  ],
+
+  "successCriteria": [
+    "W3SVC service is running",
+    "IIS website responds successfully",
+    "Validation completed successfully"
   ]
 }
