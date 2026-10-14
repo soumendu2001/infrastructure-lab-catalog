@@ -1,0 +1,18 @@
+{
+  "labs": [
+    {
+      "id": "windows.disk-full-basic",
+      "path": "windows/disk-full-basic",
+      "name": "Windows Disk Full Lab",
+      "difficulty": "basic",
+      "os": "windows"
+    },
+    {
+      "id": "windows.service-iis-basic",
+      "path": "windows/service-iis-basic",
+      "name": "IIS Service Down Lab",
+      "difficulty": "basic",
+      "os": "windows"
+    }
+  ]
+}
