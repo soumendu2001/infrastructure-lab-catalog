@@ -1,0 +1,33 @@
+---
+- name: Check Disk Utilization
+  hosts: "{{ target_host }}"
+  gather_facts: false
+
+  tasks:
+
+    - name: Get disk utilization
+      ansible.windows.win_shell: |
+        $drive = "{{ drive_letter }}:"
+        $disk = Get-CimInstance Win32_LogicalDisk |
+        Where-Object {$_.DeviceID -eq $drive}
+
+        $used_pct = [math]::Round((($disk.Size - $disk.FreeSpace) / $disk.Size) * 100,2)
+
+        $result = @{
+            drive = $drive
+            used_pct = $used_pct
+            free_gb = [math]::Round($disk.FreeSpace / 1GB,2)
+        }
+
+        $result | ConvertTo-Json -Compress
+
+      register: disk_info
+
+    - name: Display disk info
+      debug:
+        var: disk_info.stdout
+
+    - name: Set utilization fact
+      set_stats:
+        data:
+          disk_info: "{{ disk_info.stdout | from_json }}"
