@@ -1,0 +1,17 @@
+---
+- name: Disk Self Healing
+  hosts: "{{ target_host }}"
+  gather_facts: false
+
+  tasks:
+
+    - include_tasks: disk_health_check.yml
+
+    - include_tasks: disk_cleanup.yml
+      when: disk_used_pct | float > disk_threshold | float
+
+    - include_tasks: disk_validation.yml
+      when: disk_used_pct | float > disk_threshold | float
+
+    - include_tasks: disk_analysis.yml
+      when: final_disk_pct | float > disk_threshold | float
